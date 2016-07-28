@@ -1,0 +1,100 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
+
+<dom-module id="component-item">
+    <template>
+        <style>
+            :host {
+                display: block;
+                width: 100%;
+                padding: 10px;
+                @apply(--layout-horizontal);
+            }
+
+            .left-info {
+                @apply(--layout-flex-10);
+            }
+
+            .left-info h3 {
+                font-size: smaller;
+                font-weight: lighter;
+                padding: 0;
+                margin: 20px 0 0 0;
+            }
+
+            .left-info a {
+                font-size: x-small;
+                color: burlywood;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+            .right-info {
+                @apply(--layout-flex-2);
+                text-align: right;
+            }
+
+            .right-info h2 {
+                margin: 15px 0;
+                font-weight: lighter;
+                font-size: xx-large;
+            }
+        </style>
+        <div class="left-info">
+            <h3>[[name]]</h3>
+            <a href$="[[getUrl(user, repo)]]" target="_blank">[[getUrl(user, repo)]]</a>
+        </div>
+        <div class="right-info">
+            <h2>[[version]]</h2>
+        </div>
+    </template>
+    <script>
+        Polymer({
+            is: 'component-item',
+
+            properties: {
+                name: {
+                    type: String,
+                    value: '',
+                    reflecToAttribute: true,
+                    notify: true
+                },
+
+                user: {
+                    type: String,
+                    value: '',
+                    reflecToAttribute: true,
+                    notify: true
+                },
+
+                repo: {
+                    type: String,
+                    value: '',
+                    reflecToAttribute: true,
+                    notify: true
+                },
+
+                version: {
+                    type: String,
+                    value: '',
+                    reflecToAttribute: true,
+                    notify: true
+                }
+            },
+
+            ready: function() {
+                console.log('i am ready');
+            },
+
+            /*
+             * Returns the github url for the repo
+             * @param user The username of the org / person
+             * @param repo The name of the repository
+             * @returns String
+             */
+            getUrl: function(user, repo) {
+              return 'https://github.com/' + user + '/' + repo;
+            }
+        });
+    </script>
+</dom-module>
