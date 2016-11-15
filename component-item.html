@@ -9,6 +9,11 @@
                 width: 100%;
                 padding: 10px;
                 @apply(--layout-horizontal);
+                border-left: 5px solid orange;
+            }
+
+            :host[loaded] {
+                border-left: 5px solid green;
             }
 
             .left-info {
@@ -19,7 +24,7 @@
                 font-size: smaller;
                 font-weight: lighter;
                 padding: 0;
-                margin: 20px 0 0 0;
+                margin: 0;
             }
 
             .left-info a {
@@ -83,7 +88,9 @@
             },
 
             ready: function() {
-                console.log('i am ready');
+                this.importHref('../bower_components/' + this.name + '/' + this.name + '.html', (e) => {
+                    this.setAttribute('loaded', 'true');
+                });
             },
 
             /*
