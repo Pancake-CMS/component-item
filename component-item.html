@@ -47,7 +47,7 @@
         </style>
         <div class="left-info">
             <h3>[[name]]</h3>
-            <a href$="[[getUrl(user, repo)]]" target="_blank">[[getUrl(user, repo)]]</a>
+            <a href$="[[homepage]]" target="_blank">[[homepage]]</a>
         </div>
         <div class="right-info">
             <h2>[[version]]</h2>
@@ -65,18 +65,11 @@
                     notify: true
                 },
 
-                user: {
+                homepage: {
                     type: String,
                     value: '',
-                    reflecToAttribute: true,
-                    notify: true
-                },
-
-                repo: {
-                    type: String,
-                    value: '',
-                    reflecToAttribute: true,
-                    notify: true
+                    notify: true,
+                    reflecToAttribute: true
                 },
 
                 version: {
@@ -91,16 +84,6 @@
                 this.importHref('../bower_components/' + this.name + '/' + this.name + '.html', (e) => {
                     this.setAttribute('loaded', 'true');
                 });
-            },
-
-            /*
-             * Returns the github url for the repo
-             * @param user The username of the org / person
-             * @param repo The name of the repository
-             * @returns String
-             */
-            getUrl: function(user, repo) {
-              return 'https://github.com/' + user + '/' + repo;
             }
         });
     </script>

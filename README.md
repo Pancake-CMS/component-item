@@ -12,8 +12,7 @@ bower install --save pancake-cms-component-item
 ```html
 <component-item
     name="pancake-cms-component-item"
-    user="Pancake-CMS"
-    repo="component-item"
+    homepage="https://github.com/Pancake-CMS/pancake-player/blob/master/pancake-player"
     version="0.0.1">
 </component-item>
 ```
@@ -23,6 +22,5 @@ bower install --save pancake-cms-component-item
 | name | type | description |
 |------|------|---------------|
 | name | String | The bower name of the repo |
-| user | String | The org / user of the repo in github url |
-| repo | String | The name of the repo on github |
+| homepage | String | The github page of the repo |
 | version | String | The version number of the element / component |
